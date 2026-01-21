@@ -1,0 +1,21 @@
+name,age,city,salary,department,years_experience
+John Smith,25,New York,50000,Engineering,2
+Jane Doe,30,Los Angeles,60000,Marketing,5
+Bob Johnson,35,Chicago,55000,Engineering,8
+Alice Williams,28,Houston,52000,Sales,3
+Charlie Brown,32,Phoenix,58000,Engineering,6
+Diana Davis,29,Philadelphia,54000,Marketing,4
+Edward Miller,45,San Antonio,75000,Management,15
+Fiona Wilson,26,San Diego,48000,Sales,1
+George Moore,38,Dallas,65000,Engineering,10
+Hannah Taylor,31,San Jose,62000,Marketing,7
+Ian Anderson,27,Austin,51000,Sales,2
+Julia Thomas,33,Jacksonville,59000,Engineering,7
+Kevin Jackson,41,Fort Worth,70000,Management,12
+Laura White,24,Columbus,46000,Sales,1
+Michael Harris,36,Charlotte,64000,Engineering,9
+Nancy Martin,29,San Francisco,72000,Engineering,5
+Oliver Thompson,34,Indianapolis,58000,Marketing,6
+Patricia Garcia,28,Seattle,68000,Engineering,4
+Quinn Martinez,42,Denver,71000,Management,14
+Rachel Robinson,30,Washington,63000,Marketing,6
