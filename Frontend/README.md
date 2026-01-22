@@ -1,14 +1,17 @@
-# CSV Dataset Explorer - Frontend
+# Frontend - Data Visualization Explorer
 
-React-based frontend for the Interactive CSV Dataset Explorer application.
+Modern React-based frontend for interactive data visualization and analysis.
 
 ## Features
 
-- CSV file upload interface
-- Real-time dataset statistics display
-- Interactive data visualizations (bar charts, histograms)
-- Dynamic filtering capabilities
-- Clean and responsive UI
+- **Multi-format Support**: Upload CSV, JSON, TXT, XLSX, TSV files
+- **Interactive Visualizations**: Histograms, bar charts, line charts, word clouds
+- **Advanced Filtering**: Numeric ranges, categorical selection, text search
+- **Real-time Statistics**: Comprehensive data analysis
+- **Dark Mode**: Toggle between light/dark themes
+- **Responsive Design**: Mobile-friendly interface
+- **State Management**: Zustand for scalable state handling
+- **Production Ready**: Optimized for deployment
 
 ## Requirements
 
@@ -29,25 +32,228 @@ npm install
 
 ## Running the Application
 
-1. Make sure the backend is running at `http://localhost:8000`
+1. Ensure backend is running on `http://localhost:8000`:
+```bash
+# In Backend directory
+python main.py
+```
 
-2. Start the React development server:
+2. Start React development server:
 ```bash
 npm start
 ```
 
-The application will open automatically in your browser at `http://localhost:3000`
+The application opens at `http://localhost:3000`
 
 ## Project Structure
 
 ```
 Frontend/
 ├── public/
-│   └── index.html          # HTML template
+│   └── index.html
 ├── src/
-│   ├── components/         # React components
-│   │   ├── UploadCSV.js   # File upload component
-│   │   ├── UploadCSV.css
+│   ├── components/
+│   │   ├── Charts.js          # Advanced visualizations
+│   │   ├── Charts.css
+│   │   ├── DatasetInfo.js     # Dataset overview & stats
+│   │   ├── DatasetInfo.css
+│   │   ├── Filters.js         # Interactive filtering
+│   │   ├── Filters.css
+│   │   ├── Header.js          # Header with dark mode
+│   │   ├── Header.css
+│   │   ├── MessageBanner.js   # Notifications
+│   │   ├── MessageBanner.css
+│   │   ├── UploadCSV.js       # File upload with drag-drop
+│   │   └── UploadCSV.css
+│   ├── App.js                 # Main app component
+│   ├── App.css                # Global styles
+│   ├── index.js               # Entry point
+│   ├── index.css              # Global CSS
+│   ├── api.js                 # API client
+│   ├── store.js               # Zustand state management
+│   └── package.json
+└── README.md
+```
+
+## Components
+
+### UploadCSV
+File upload with drag-and-drop support, format validation, and file size display.
+
+### Charts
+Multi-type visualizations including:
+- Histograms for numeric data
+- Bar charts for categorical data
+- Line charts for temporal data
+- Word clouds for text analysis
+- Interactive hover tooltips
+- Expandable chart view
+
+### DatasetInfo
+Dataset overview displaying:
+- File metadata (name, type, dimensions)
+- Column information with type badges
+- Detailed statistics per column
+- Filtered data indicators
+
+### Filters
+Interactive filtering with:
+- Numeric range sliders
+- Categorical multi-select
+- Text search
+- Active filter display
+- Reset functionality
+
+### Header
+Navigation bar with:
+- App branding and description
+- Dark mode toggle
+- Responsive menu
+
+### MessageBanner
+Toast-style notifications for:
+- Success messages (✅)
+- Error messages (❌)
+- Info messages (ℹ️)
+
+## State Management (Zustand)
+
+Global state includes:
+- datasetInfo, chartData, sampleData
+- activeFilters, filteredRows
+- UI state (loading, messages, dark mode)
+- selectedColumn, selectedVisualization
+
+Actions for updating state:
+- setDatasetInfo, setChartData, etc.
+- setMessage, setLoading
+- toggleDarkMode, resetAll
+
+## API Integration
+
+API client (`api.js`) provides:
+- uploadFile(file)
+- filterData(filterRequest)
+- resetData()
+
+All requests handled with error handling and automatic retry.
+
+## Visualization Libraries
+
+- **Recharts**: Bar, line, area charts
+- **React-Tooltip**: Hover tooltips
+- **React-Icons**: Icon library
+- **React-Wordcloud**: Word cloud visualization
+
+## Styling
+
+- **CSS Variables** for theming
+- **Gradient backgrounds** for modern look
+- **Smooth transitions** for interactions
+- **Dark mode support** throughout
+
+## Building for Production
+
+```bash
+npm run build
+```
+
+Creates optimized build in `build/` directory.
+
+## Deployment
+
+### Vercel
+```bash
+vercel
+```
+
+### Netlify
+```bash
+netlify deploy --prod --dir=build
+```
+
+### GitHub Pages
+```bash
+npm run build
+# Push build folder to gh-pages branch
+```
+
+### Docker
+```dockerfile
+FROM node:18-alpine as build
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+
+FROM nginx:alpine
+COPY --from=build /app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+```
+
+## Environment Variables
+
+Create `.env` file:
+```
+REACT_APP_API_URL=http://localhost:8000
+```
+
+For production:
+```
+REACT_APP_API_URL=https://api.example.com
+```
+
+## Browser Support
+
+- Chrome/Edge 90+
+- Firefox 88+
+- Safari 14+
+- Mobile browsers (iOS 12+, Android 9+)
+
+## Performance Optimizations
+
+- Code splitting with React.lazy
+- Memoization of heavy components
+- Virtualized lists for large datasets
+- CSS-in-JS for optimized styling
+
+## Development
+
+### Running Tests
+```bash
+npm test
+```
+
+### Linting
+```bash
+npm run lint
+```
+
+### Code Quality
+```bash
+npm run format
+```
+
+## Contributing
+
+1. Create feature branch
+2. Make changes
+3. Test locally
+4. Submit pull request
+
+## Dependencies
+
+Key libraries:
+- react, react-dom
+- recharts (charting)
+- axios (HTTP client)
+- zustand (state management)
+- react-icons (icons)
+- styled-components (styling)
+
+See package.json for full list and versions.
 │   │   ├── DatasetInfo.js # Dataset information display
 │   │   ├── DatasetInfo.css
 │   │   ├── Charts.js      # Data visualization component

@@ -1,91 +1,408 @@
 .dataset-info-container {
   background: white;
-  padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  margin-bottom: 20px;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
 }
 
-.dataset-info-container h2 {
-  color: #1976d2;
-  margin-bottom: 20px;
+:global(.dark) .dataset-info-container {
+  background: #1e1e1e;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-.dataset-info-container h3 {
-  color: #555;
-  margin-top: 20px;
-  margin-bottom: 15px;
-  padding-bottom: 8px;
-  border-bottom: 2px solid #f0f0f0;
-}
-
-/* Basic Info Grid */
-.info-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-.info-card {
-  background: #f5f5f5;
-  padding: 15px;
-  border-radius: 6px;
-  border-left: 4px solid #1976d2;
-}
-
-.info-label {
-  font-size: 12px;
-  color: #666;
-  text-transform: uppercase;
-  margin-bottom: 5px;
-}
-
-.info-value {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-}
-
-.filtered-label {
-  font-size: 12px;
-  color: #f57c00;
-  font-weight: normal;
-}
-
-/* Columns Section */
-.columns-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 10px;
-}
-
-.column-item {
+.info-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 15px;
-  background: #f9f9f9;
-  border-radius: 4px;
-  border: 1px solid #e0e0e0;
+  margin-bottom: 1.5rem;
 }
 
-.column-name {
-  font-weight: 500;
+.info-header h2 {
+  color: #667eea;
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+:global(.dark) .info-header h2 {
+  color: #90caf9;
+}
+
+.filter-indicator {
+  background: #fff3cd;
+  color: #856404;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Metrics Grid */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.metric-card {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f5f7ff 0%, #f0f4ff 100%);
+  border-radius: 12px;
+  border-left: 4px solid #667eea;
+  transition: all 0.3s ease;
+}
+
+:global(.dark) .metric-card {
+  background: linear-gradient(135deg, #2a2a3a 0%, #1f2a3a 100%);
+  border-left-color: #90caf9;
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.15);
+}
+
+.metric-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.metric-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.metric-label {
+  font-size: 0.85rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+:global(.dark) .metric-label {
+  color: #999;
+}
+
+.metric-value {
+  font-size: 1.5rem;
+  font-weight: 700;
   color: #333;
 }
 
-.column-type {
-  padding: 4px 12px;
-  border-radius: 12px;
-  font-size: 12px;
-  font-weight: bold;
-  text-transform: uppercase;
+:global(.dark) .metric-value {
+  color: #fff;
 }
 
-.column-type.numeric {
-  background-color: #e3f2fd;
-  color: #1976d2;
+.filter-badge {
+  font-size: 0.8rem;
+  font-weight: normal;
+  color: #f57c00;
+  margin-left: 0.5rem;
+}
+
+.metric-detail {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+:global(.dark) .metric-detail {
+  color: #666;
+}
+
+/* Columns Section */
+.columns-section {
+  margin-bottom: 2rem;
+}
+
+.columns-section h3 {
+  color: #333;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #f0f0f0;
+  font-size: 1.1rem;
+}
+
+:global(.dark) .columns-section h3 {
+  color: #fff;
+  border-bottom-color: #333;
+}
+
+.columns-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.column-badge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: #f9f9f9;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+:global(.dark) .column-badge {
+  background: #2a2a3a;
+  border-color: #444;
+}
+
+.column-badge:hover {
+  border-color: #667eea;
+  background: #f5f7ff;
+}
+
+:global(.dark) .column-badge:hover {
+  border-color: #90caf9;
+  background: #333344;
+}
+
+.column-name {
+  font-weight: 600;
+  color: #333;
+  flex: 1;
+  word-break: break-word;
+}
+
+:global(.dark) .column-name {
+  color: #fff;
+}
+
+.column-type-badge {
+  padding: 0.35rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: white;
+}
+
+.column-type-badge.numeric {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.column-type-badge.categorical {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.column-type-badge.temporal {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+/* Statistics Section */
+.statistics-section {
+  margin-bottom: 1rem;
+}
+
+.statistics-section h3 {
+  color: #333;
+  margin: 0 0 1.5rem 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #f0f0f0;
+  font-size: 1.1rem;
+}
+
+:global(.dark) .statistics-section h3 {
+  color: #fff;
+  border-bottom-color: #333;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  transition: all 0.2s ease;
+}
+
+:global(.dark) .stat-card {
+  background: #2a2a3a;
+  border-color: #444;
+}
+
+.stat-card:hover {
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+  border-color: #667eea;
+}
+
+:global(.dark) .stat-card:hover {
+  border-color: #90caf9;
+}
+
+.stat-card h4 {
+  margin: 0 0 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #333;
+  font-size: 1rem;
+}
+
+:global(.dark) .stat-card h4 {
+  color: #fff;
+}
+
+.stat-name {
+  font-weight: 600;
+}
+
+.stat-type {
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: white;
+}
+
+.stat-type.numeric {
+  background: #667eea;
+}
+
+.stat-type.categorical {
+  background: #f5576c;
+}
+
+.stat-type.temporal {
+  background: #00f2fe;
+}
+
+.stat-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: white;
+  border-radius: 8px;
+}
+
+:global(.dark) .stat-row {
+  background: #1e1e1e;
+}
+
+.stat-key {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+:global(.dark) .stat-key {
+  color: #aaa;
+}
+
+.stat-val {
+  font-weight: 700;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+:global(.dark) .stat-val {
+  color: #fff;
+}
+
+.stat-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.75rem;
+  background: white;
+  border-radius: 8px;
+  border-left: 3px solid #667eea;
+}
+
+:global(.dark) .stat-item {
+  background: #1e1e1e;
+}
+
+.top-values {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.values-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.value-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  background: white;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+:global(.dark) .value-item {
+  background: #1e1e1e;
+}
+
+.value-label {
+  color: #333;
+  font-weight: 500;
+}
+
+:global(.dark) .value-label {
+  color: #fff;
+}
+
+.value-count {
+  background: #667eea;
+  color: white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+  .dataset-info-container {
+    padding: 1.5rem;
+  }
+
+  .metrics-grid,
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .columns-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  .stat-grid-2 {
+    grid-template-columns: 1fr;
+  }
 }
 
 .column-type.categorical {
