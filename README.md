@@ -1,53 +1,388 @@
-# Interactive CSV Dataset Explorer
+# 📊 Interactive Data Visualization System
 
-A full-stack web application for exploring and analyzing CSV datasets with interactive visualizations and filtering capabilities.
+A complete, production-ready full-stack application for interactive data visualization and analysis. Transform multiple data formats into powerful, interactive insights with macro and micro-level exploration.
+
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
+![Python](https://img.shields.io/badge/Python-3.8+-green.svg)
+![Node.js](https://img.shields.io/badge/Node.js-14+-green.svg)
+![React](https://img.shields.io/badge/React-18.2+-blue.svg)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-darkblue.svg)
 
 ## 🎯 Project Overview
 
-This application allows users to:
-- Upload CSV files
-- Automatically analyze data types and statistics
-- Visualize data with interactive charts
-- Filter and explore data dynamically
-- No authentication required - simple and teacher-friendly
+This system enables **master-level academic data exploration** with:
+
+- **Multiple Data Format Support**: CSV, JSON, TXT, XLSX, TSV
+- **Intelligent Data Processing**: Automatic type detection, missing value handling
+- **Advanced Analytics**: Descriptive statistics, distributions, temporal analysis
+- **Interactive Visualizations**: Histograms, bar charts, line charts, word clouds
+- **Dynamic Filtering**: Range filters, categorical selection, text search
+- **Micro-level Drill-down**: Click, hover, brush, and link interactions
+- **Professional UI**: Dark mode, responsive design, accessibility
 
 ## 🏗️ Architecture
 
-- **Frontend**: React (JavaScript) with Recharts for visualizations
-- **Backend**: FastAPI (Python) with Pandas for data processing
-- **Communication**: REST API with JSON responses
+```
+┌─────────────────────────────────────────────────────────┐
+│                    React Frontend                        │
+│  (Visualizations, Filtering, State Management)          │
+└──────────────────────┬──────────────────────────────────┘
+                       │ REST API (JSON)
+                       │
+┌──────────────────────▼──────────────────────────────────┐
+│                  FastAPI Backend                         │
+│  (File Processing, Statistics, Data Analysis)           │
+└─────────────────────────────────────────────────────────┘
+```
 
 ## 📁 Project Structure
 
 ```
-DataProjet/
-├── Backend/                 # FastAPI backend
-│   ├── main.py             # API endpoints and logic
-│   ├── requirements.txt    # Python dependencies
-│   └── README.md           # Backend documentation
-│
-├── Frontend/               # React frontend
-│   ├── public/            # Static files
+ProjectData/
+├── Backend/
+│   ├── main.py              # FastAPI application
+│   ├── requirements.txt      # Python dependencies
+│   └── README.md            # Backend documentation
+├── Frontend/
 │   ├── src/
-│   │   ├── components/    # React components
-│   │   │   ├── UploadCSV.js
-│   │   │   ├── DatasetInfo.js
-│   │   │   ├── Charts.js
-│   │   │   └── Filters.js
-│   │   ├── App.js         # Main app component
-│   │   └── index.js       # Entry point
-│   ├── package.json       # Node dependencies
-│   └── README.md          # Frontend documentation
-│
-└── README.md              # This file
+│   │   ├── components/      # React components
+│   │   ├── App.js           # Main app
+│   │   ├── store.js         # State management
+│   │   ├── api.js           # API client
+│   │   └── index.css        # Global styles
+│   ├── package.json         # Node dependencies
+│   └── README.md            # Frontend documentation
+├── QUICKSTART.md            # Quick start guide
+└── README.md                # This file
 ```
 
-## 🚀 Quick Start Guide
+## 🚀 Quick Start
 
 ### Prerequisites
+- Python 3.8+
+- Node.js 14+
+- npm or yarn
 
-- Python 3.8 or higher
-- Node.js 14.x or higher
+### 1️⃣ Backend Setup
+
+```bash
+cd Backend
+
+# Create virtual environment
+python -m venv venv
+
+# Activate (macOS/Linux)
+source venv/bin/activate
+# OR Windows
+venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Start server
+python main.py
+# Runs on http://localhost:8000
+```
+
+### 2️⃣ Frontend Setup
+
+```bash
+cd Frontend
+
+# Install dependencies
+npm install
+
+# Start development server
+npm start
+# Opens http://localhost:3000
+```
+
+### 3️⃣ Use the Application
+
+1. Navigate to http://localhost:3000
+2. Click "Choose File" and select a data file
+3. Click "Upload & Analyze"
+4. Explore the data with interactive visualizations
+5. Apply filters to drill down into subsets
+
+## 📊 Supported Data Formats
+
+| Format | Extension | Use Case |
+|--------|-----------|----------|
+| CSV | `.csv` | Tabular data, spreadsheets |
+| JSON | `.json` | Structured/nested data |
+| XLSX | `.xlsx` | Excel spreadsheets |
+| TSV | `.tsv` | Tab-separated values |
+| TXT | `.txt` | Text documents, word analysis |
+
+## 🎨 Features
+
+### Macro-Level Exploration
+- **Distribution Histograms** for numeric data
+- **Bar Charts** for categorical distributions
+- **Line Charts** for temporal trends
+- **Word Clouds** for text analysis
+- **Summary Statistics** panel
+
+### Micro-Level Drill-Down
+- **Range Sliders** for numeric filtering
+- **Multi-Select** for categories
+- **Text Search** for content
+- **Hover Tooltips** with details
+- **Interactive Data Tables**
+- **Click-to-Filter** interactions
+
+### Interactive Features
+- **Hover Detection** with contextual info
+- **Brush & Link** selections
+- **Dynamic Updates** across views
+- **Smooth Animations** and transitions
+- **Dark Mode** toggle
+- **Responsive Design** (desktop/mobile)
+
+### Professional Presentations (Phase 4)
+- **Fullscreen Presentations** with keyboard navigation
+- **7 Slide Types**: Title, Chart, Multi-Chart, Text, Key Insight, Comparison, Conclusion
+- **6 Annotation Types**: Arrow, Circle, Rectangle, Text, Highlight, Callout
+- **Speaker Notes** and slide navigator
+- **Automatic Timers** with speaker control
+- **Professional Themes** (Dark, Light, Executive, Corporate)
+- **Print Support** and PDF export
+
+### Export & Reporting (Phase 5) ✨ NEW
+- **Multi-Format Export**: PNG, SVG, PDF
+- **Configurable Resolution**: 72, 150, 300, 600 DPI
+- **Single Chart Export** with multiple format options
+- **Dashboard Reporting** with multi-chart PDF exports
+- **Custom Report Layouts**: 1-2 charts per page
+- **Report Metadata**: Title, subtitle, author, timestamp
+- **Professional Quality** suitable for executive reports
+- **Responsive Export Dialogs** with progress tracking
+
+## 🔧 API Endpoints
+
+### POST /upload
+Upload and process a file
+
+**Supports**: CSV, JSON, TXT, XLSX, TSV
+
+**Returns**: Dataset metadata, statistics, and chart data
+
+### POST /filter
+Apply filters to current dataset
+
+**Parameters**: column, filter_type (range/category/search), values
+
+**Returns**: Filtered data and updated statistics
+
+### DELETE /reset
+Reset to original dataset
+
+## 📈 Data Type Detection
+
+The system automatically detects and handles:
+
+- **Numeric**: Integer/float values → Histograms, statistics
+- **Categorical**: String values → Bar charts, distributions
+- **Temporal**: Dates/datetimes → Line charts, trends
+- **Text**: Long-form text → Word clouds, frequency analysis
+
+## 📊 Statistics Computed
+
+### Numeric Columns
+- Mean, median, standard deviation
+- Min, max, quartiles (Q1, Q3)
+- Missing value count
+
+### Categorical Columns
+- Unique value count
+- Value distributions (top 20)
+- Missing value count
+
+### Temporal Columns
+- Date range (min/max)
+- Trend visualization
+- Period analysis
+
+## 🎯 Use Cases
+
+### Academic Research
+- Explore survey data
+- Analyze experimental results
+- Compare data subsets
+
+### Business Intelligence
+- KPI analysis
+- Sales data exploration
+- Customer segmentation
+
+### Data Science
+- EDA (Exploratory Data Analysis)
+- Feature engineering discovery
+- Pattern identification
+
+## 🛠️ Technology Stack
+
+### Backend
+- **FastAPI**: Modern async web framework
+- **Pandas**: Data manipulation & analysis
+- **NumPy**: Numerical computing
+- **Python 3.8+**: Programming language
+
+### Frontend
+- **React 18**: UI library
+- **Recharts**: Charting library
+- **Zustand**: State management
+- **CSS3**: Styling with dark mode
+
+### Deployment
+- **Docker**: Containerization
+- **Vercel/Netlify**: Frontend hosting
+- **Heroku/Railway**: Backend hosting
+
+## 📦 Deployment
+
+### Docker Compose (Local)
+```bash
+docker-compose up
+```
+
+### Cloud Deployment
+
+**Frontend** (Vercel/Netlify):
+```bash
+npm run build
+# Deploy build folder
+```
+
+**Backend** (Heroku/Railway):
+```bash
+git push heroku main
+```
+
+See individual README files for detailed deployment instructions.
+
+## 🔐 Production Checklist
+
+- [ ] Update CORS origins in Backend
+- [ ] Set API URL in Frontend environment
+- [ ] Enable HTTPS for API
+- [ ] Add authentication if needed
+- [ ] Configure rate limiting
+- [ ] Set up monitoring/logging
+- [ ] Test with large datasets
+- [ ] Optimize performance
+- [ ] Document API changes
+- [ ] Prepare backup strategy
+
+## 🐛 Troubleshooting
+
+**Backend won't start**: Ensure Python 3.8+, all dependencies installed
+**Frontend can't connect**: Check backend running on localhost:8000
+**File upload fails**: Verify file format, check size limits
+**Charts not showing**: Ensure column types detected correctly
+
+See individual README files for more troubleshooting.
+
+## 📚 Documentation
+
+### Core Documentation
+- [Backend Documentation](Backend/README.md)
+- [Frontend Documentation](Frontend/README.md)
+- [API Reference](QUICKSTART.md)
+
+### Feature Guides
+- [Data Upload & Processing](DATA_UPLOAD_DOCS.md) - Phase 1
+- [Visualization Builder](VISUALIZATION_BUILDER_DOCS.md) - Phase 2
+- [Interactive Charts](INTERACTIVE_CHARTS_DOCS.md) - Phase 3
+- [Presentation Mode](PRESENTATION_MODE_DOCS.md) - Phase 4
+  - [Presentation Quick Start](PRESENTATION_QUICKSTART.md)
+- **[Export Features](EXPORT_FEATURES_DOCS.md) - Phase 5** ✨ NEW
+  - [Export Quick Start](EXPORT_QUICKSTART.md)
+  - [Implementation Details](EXPORT_IMPLEMENTATION.md)
+
+### Quick Reference
+- [Complete Feature Overview](PROJECT_SUMMARY.md)
+- [Implementation Checklist](CHECKLIST.md)
+- [Quick Start Guide](QUICKSTART.md)
+
+## 🎓 For Academic Use
+
+This system is designed for:
+- **Master-level courses** on data visualization
+- **Research projects** requiring interactive analysis
+- **Capstone projects** with data exploration focus
+- **Academic papers** on visualization design
+
+**Features suitable for education**:
+- Intuitive interface for learning
+- Multiple visualization types
+- Clear statistical explanations
+- Real-time feedback
+- No authentication required
+
+## 📝 License
+
+MIT License - Feel free to use and modify for academic/commercial purposes.
+
+## 👨‍💻 Development
+
+### Adding New Features
+
+1. **New visualization type**: Add to Charts component
+2. **New file format**: Extend backend parsing
+3. **New statistic**: Update statistics computation
+4. **New filter**: Add to Filters component
+
+### Code Style
+
+- Python: PEP 8
+- JavaScript: ESLint config
+- Git: Conventional commits
+
+## 🤝 Contributing
+
+Contributions welcome! Please:
+1. Fork repository
+2. Create feature branch
+3. Add tests/documentation
+4. Submit pull request
+
+## 📞 Support
+
+For issues or questions:
+- Check README files
+- Review code comments
+- Check troubleshooting section
+- Open GitHub issue
+
+## 🎉 Features Showcase
+
+### Data Exploration
+- Automatic outlier detection
+- Distribution analysis
+- Correlation visualization
+- Missing data handling
+
+### User Experience
+- Drag-and-drop upload
+- Real-time updates
+- Keyboard shortcuts
+- Accessibility features
+
+### Performance
+- Large file support (100MB+)
+- Optimized rendering
+- Efficient filtering
+- Caching strategies
+
+---
+
+**Built for**: Master-level academic courses  
+**Ready for**: Production deployment  
+**Designed for**: Interactive data exploration
+
+Happy exploring! 📊✨
 - npm or yarn
 
 ### Step 1: Start the Backend

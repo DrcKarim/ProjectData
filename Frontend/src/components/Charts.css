@@ -1,53 +1,234 @@
 .charts-container {
   background: white;
-  padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  margin-bottom: 20px;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
 }
 
-.charts-container h2 {
-  color: #1976d2;
-  margin-bottom: 20px;
+:global(.dark) .charts-container {
+  background: #1e1e1e;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-.charts-container h3 {
-  color: #555;
-  margin-top: 20px;
-  margin-bottom: 15px;
-  padding-bottom: 8px;
-  border-bottom: 2px solid #f0f0f0;
+.charts-header {
+  margin-bottom: 2rem;
+}
+
+.charts-header h2 {
+  color: #667eea;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+:global(.dark) .charts-header h2 {
+  color: #90caf9;
+}
+
+.charts-header p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+:global(.dark) .charts-header p {
+  color: #aaa;
 }
 
 .chart-section {
-  margin-bottom: 30px;
+  margin-bottom: 3rem;
+}
+
+.chart-section h3 {
+  color: #333;
+  margin: 0 0 1.5rem 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #f0f0f0;
+  font-size: 1.1rem;
+}
+
+:global(.dark) .chart-section h3 {
+  color: #fff;
+  border-bottom-color: #333;
 }
 
 .charts-grid {
   display: grid;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.charts-grid.grid-1 {
+  grid-template-columns: 1fr;
+}
+
+.charts-grid.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+}
+
+.charts-grid.grid-3 {
   grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-  gap: 25px;
-  margin-top: 20px;
 }
 
 .chart-card {
   background: #fafafa;
-  padding: 20px;
-  border-radius: 6px;
+  padding: 1.5rem;
+  border-radius: 12px;
   border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+:global(.dark) .chart-card {
+  background: #2a2a3a;
+  border-color: #444;
+}
+
+.chart-card:hover {
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.15);
+  border-color: #667eea;
+}
+
+:global(.dark) .chart-card:hover {
+  box-shadow: 0 6px 16px rgba(144, 202, 249, 0.15);
+  border-color: #90caf9;
+}
+
+.chart-card.expanded {
+  grid-column: 1 / -1;
+  margin: 1rem 0;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
 .chart-card h4 {
-  color: #1976d2;
-  margin-bottom: 15px;
-  font-size: 16px;
+  color: #667eea;
+  margin: 0;
+  font-size: 1rem;
+  text-align: left;
+}
+
+:global(.dark) .chart-card h4 {
+  color: #90caf9;
+}
+
+.expand-btn {
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.expand-btn:hover {
+  background: #764ba2;
+  transform: scale(1.1);
+}
+
+.expand-btn:active {
+  transform: scale(0.95);
+}
+
+.chart-hint {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  color: #999;
   text-align: center;
-  border-bottom: 2px solid #e0e0e0;
-  padding-bottom: 10px;
+}
+
+:global(.dark) .chart-hint {
+  color: #666;
+}
+
+.custom-tooltip {
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.custom-tooltip .label {
+  margin: 0 0 0.25rem 0;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.custom-tooltip .value {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+/* Word Cloud Styles */
+.word-cloud-container {
+  background: #fafafa;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+}
+
+:global(.dark) .word-cloud-container {
+  background: #2a2a3a;
+  border-color: #444;
+}
+
+.word-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.word-cloud .word {
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.word-cloud .word:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+@media (max-width: 768px) {
+  .charts-container {
+    padding: 1.5rem;
+  }
+
+  .charts-grid.grid-2,
+  .charts-grid.grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-card {
+    padding: 1rem;
+  }
+
+  .word-cloud {
+    gap: 0.75rem;
+  }
 }
 
 .no-charts {
-  text-align: center;
   padding: 40px;
   color: #666;
   background: #f5f5f5;

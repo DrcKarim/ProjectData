@@ -1,86 +1,143 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import useStore from '../store';
+import { api } from '../api';
+import { FaUpload, FaFile } from 'react-icons/fa';
 import './UploadCSV.css';
 
 /**
- * Component for CSV file upload
- * Handles file selection and upload to backend
+ * Component for multi-format file upload
+ * Supports: CSV, JSON, TXT, XLSX, TSV
  */
-function UploadCSV({ onUploadSuccess, onUploadError }) {
+function UploadCSV() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [uploading, setUploading] = useState(false);
+  const fileInputRef = useRef(null);
+
+  const {
+    setDatasetInfo,
+    setChartData,
+    setSampleData,
+    setWordFrequencies,
+    setFileType,
+    setMessage,
+    setLoading,
+    resetAll
+  } = useStore();
+
+  const supportedFormats = ['.csv', '.json', '.txt', '.xlsx', '.tsv'];
 
   // Handle file selection
   const handleFileSelect = (event) => {
-    const file = event.target.files[0];
+    const file = event.target.files?.[0];
     
-    if (file) {
-      // Validate file type
-      if (!file.name.endsWith('.csv')) {
-        onUploadError('Please select a CSV file');
-        return;
-      }
-      setSelectedFile(file);
+    if (!file) return;
+
+    // Validate file type
+    const ext = '.' + file.name.split('.').pop().toLowerCase();
+    if (!supportedFormats.includes(ext)) {
+      setMessage(`Unsupported file format: ${ext}. Supported: ${supportedFormats.join(', ')}`, 'error');
+      return;
     }
+
+    setSelectedFile(file);
   };
 
   // Upload file to backend
   const handleUpload = async () => {
     if (!selectedFile) {
-      onUploadError('Please select a file first');
+      setMessage('Please select a file first', 'error');
       return;
     }
 
     setUploading(true);
+    setLoading(true);
 
     try {
-      // Create form data for file upload
-      const formData = new FormData();
-      formData.append('file', selectedFile);
-
       // Send file to backend
-      const response = await fetch('http://localhost:8000/upload', {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.detail || 'Upload failed');
-      }
-
-      const data = await response.json();
+      const response = await api.uploadFile(selectedFile);
+      const data = response.data;
       
-      // Validate the response data
+      // Validate response
       if (!data || !data.num_rows || !data.column_names) {
         throw new Error('Invalid response from server');
       }
       
-      // Notify parent component of successful upload
-      onUploadSuccess(data);
+      // Update store
+      setDatasetInfo(data);
+      setChartData(data.chart_data);
+      setSampleData(data.sample_data);
+      setWordFrequencies(data.word_frequencies);
+      setFileType(data.file_type);
+      
+      setMessage(`✅ ${data.filename} uploaded successfully! (${data.num_rows} rows, ${data.num_columns} columns)`, 'success');
+      
+      // Reset file input
+      setSelectedFile(null);
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
       
     } catch (error) {
       console.error('Upload error:', error);
-      onUploadError(error.message || 'Failed to upload file. Make sure the backend is running.');
+      const errorMsg = error.response?.data?.detail || error.message || 'Failed to upload file. Ensure backend is running on http://localhost:8000';
+      setMessage(errorMsg, 'error');
+      resetAll();
     } finally {
       setUploading(false);
+      setLoading(false);
+    }
+  };
+
+  // Handle drag and drop
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const file = e.dataTransfer.files?.[0];
+    if (file) {
+      // Simulate file input change
+      const event = { target: { files: [file] } };
+      handleFileSelect(event);
     }
   };
 
   return (
     <div className="upload-container">
-      <h2>📊 Upload CSV Dataset</h2>
+      <div className="upload-header">
+        <h2><FaUpload /> Upload Your Data</h2>
+        <p>Supports: CSV, JSON, TXT, XLSX, TSV</p>
+      </div>
       
-      <div className="upload-box">
+      <div 
+        className={`upload-box ${selectedFile ? 'has-file' : ''}`}
+        onDragOver={handleDragOver}
+        onDrop={handleDrop}
+      >
         <input
+          ref={fileInputRef}
           type="file"
-          accept=".csv"
+          accept={supportedFormats.join(',')}
           onChange={handleFileSelect}
           disabled={uploading}
           id="file-input"
+          className="file-input"
         />
         
         <label htmlFor="file-input" className="file-label">
-          {selectedFile ? selectedFile.name : 'Choose CSV file'}
+          <FaFile className="file-icon" />
+          <div>
+            <p className="label-title">
+              {selectedFile ? selectedFile.name : 'Choose file or drag & drop'}
+            </p>
+            {!selectedFile && (
+              <p className="label-subtitle">Supported formats: CSV, JSON, TXT, XLSX, TSV</p>
+            )}
+          </div>
         </label>
 
         <button
@@ -88,13 +145,20 @@ function UploadCSV({ onUploadSuccess, onUploadError }) {
           disabled={!selectedFile || uploading}
           className="upload-button"
         >
-          {uploading ? 'Uploading...' : 'Upload & Analyze'}
+          {uploading ? (
+            <>
+              <span className="spinner"></span>
+              Uploading...
+            </>
+          ) : (
+            'Upload & Analyze'
+          )}
         </button>
       </div>
 
       {selectedFile && (
         <div className="file-info">
-          <p>Selected: <strong>{selectedFile.name}</strong></p>
+          <p>📄 <strong>{selectedFile.name}</strong></p>
           <p>Size: {(selectedFile.size / 1024).toFixed(2)} KB</p>
         </div>
       )}
