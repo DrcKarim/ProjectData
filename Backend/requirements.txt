@@ -5,3 +5,5 @@ python-multipart==0.0.12
 numpy==1.26.4
 openpyxl==3.1.5
 nltk==3.8.1
+pillow==10.2.0
+scikit-learn==1.4.0

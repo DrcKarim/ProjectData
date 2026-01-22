@@ -10,6 +10,7 @@ import Filters from './components/Filters';
 import Header from './components/Header';
 import MessageBanner from './components/MessageBanner';
 import VisualizationBuilder from './components/VisualizationBuilder';
+import ImageColorAnalysis from './components/ImageColorAnalysis';
 import styled from 'styled-components';
 import { LightTheme, DarkTheme } from './styles';
 import './App.css';
@@ -131,7 +132,6 @@ function App() {
         </TabContainer>
 
         {/* Upload Tab Content */}
-        {/* Upload Tab Content */}
         {activeMainTab === 'upload' && (
           <>
             <TabContainer>
@@ -147,6 +147,12 @@ function App() {
               >
                 📁 Classic Upload
               </TabButton>
+              <TabButton 
+                active={uploadTab === 'imageAnalysis'} 
+                onClick={() => setUploadTab('imageAnalysis')}
+              >
+                🎨 Image Color Analysis
+              </TabButton>
             </TabContainer>
 
             {uploadTab === 'enhanced' && (
@@ -161,6 +167,12 @@ function App() {
               </div>
             )}
 
+            {uploadTab === 'imageAnalysis' && (
+              <div style={{ marginBottom: '32px' }}>
+                <ImageColorAnalysis />
+              </div>
+            )}
+
             {/* Data Profile Section - Shows after enhanced upload */}
             {uploadedData && uploadTab === 'enhanced' && (
               <div style={{ marginBottom: '32px', marginTop: '32px' }}>
@@ -172,8 +184,8 @@ function App() {
               </div>
             )}
 
-            {/* Main Content - Only show if dataset is loaded */}
-            {datasetInfo && (
+            {/* Main Content - Only show if dataset is loaded and NOT in image analysis tab */}
+            {datasetInfo && uploadTab !== 'imageAnalysis' && (
               <>
                 {/* Dataset Information Panel */}
                 <DatasetInfo 
@@ -193,8 +205,8 @@ function App() {
               </>
             )}
 
-            {/* Welcome Screen */}
-            {!datasetInfo && (
+            {/* Welcome Screen - Only show when no data and NOT in image analysis tab */}
+            {!datasetInfo && uploadTab !== 'imageAnalysis' && (
               <div className="welcome-section">
                 <div className="welcome-card">
                   <h2>📊 Data Visualization Explorer</h2>

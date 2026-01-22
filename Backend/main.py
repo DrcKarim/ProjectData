@@ -16,7 +16,13 @@ import re
 from collections import Counter
 from pathlib import Path
 
+# Import image analysis router
+from image_analysis import router as image_router
+
 app = FastAPI(title="Interactive Data Visualization API")
+
+# Include image analysis router
+app.include_router(image_router, prefix="/api", tags=["Image Analysis"])
 
 # Enable CORS for frontend communication
 app.add_middleware(
