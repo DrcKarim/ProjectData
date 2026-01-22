@@ -4,6 +4,7 @@
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   margin-bottom: 2rem;
+  overflow: hidden;
 }
 
 :global(.dark) .dataset-info-container {
@@ -117,15 +118,17 @@
 
 /* Columns Section */
 .columns-section {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  clear: both;
 }
 
 .columns-section h3 {
   color: #333;
-  margin: 0 0 1rem 0;
+  margin: 0 0 1.5rem 0;
   padding-bottom: 0.75rem;
   border-bottom: 2px solid #f0f0f0;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 :global(.dark) .columns-section h3 {
@@ -135,8 +138,9 @@
 
 .columns-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 .column-badge {
@@ -144,11 +148,12 @@
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
-  padding: 1rem;
+  padding: 1.25rem;
   background: #f9f9f9;
   border: 2px solid #e0e0e0;
   border-radius: 10px;
   transition: all 0.2s ease;
+  min-height: 60px;
 }
 
 :global(.dark) .column-badge {
@@ -201,7 +206,8 @@
 
 /* Statistics Section */
 .statistics-section {
-  margin-bottom: 1rem;
+  margin-bottom: 2.5rem;
+  clear: both;
 }
 
 .statistics-section h3 {
@@ -209,7 +215,8 @@
   margin: 0 0 1.5rem 0;
   padding-bottom: 0.75rem;
   border-bottom: 2px solid #f0f0f0;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 :global(.dark) .statistics-section h3 {
@@ -219,8 +226,9 @@
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .stat-card {
@@ -229,6 +237,7 @@
   border-radius: 12px;
   border: 1px solid #e0e0e0;
   transition: all 0.2s ease;
+  overflow: hidden;
 }
 
 :global(.dark) .stat-card {
@@ -379,7 +388,7 @@
 
 .value-count {
   background: #667eea;
-  color: white;
+  color: black;
   padding: 0.2rem 0.6rem;
   border-radius: 4px;
   font-weight: 600;
@@ -484,4 +493,95 @@
   color: #1976d2;
   font-weight: bold;
   font-size: 13px;
+}
+
+/* Quality Issues Section */
+.quality-issues {
+  margin-top: 2.5rem;
+  padding: 1.5rem;
+  background: #fff8e1;
+  border: 2px solid #ffd54f;
+  border-radius: 12px;
+  clear: both;
+}
+
+:global(.dark) .quality-issues {
+  background: #3e2723;
+  border-color: #ff6f00;
+}
+
+.quality-issues h3 {
+  color: #f57c00;
+  margin: 0 0 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+:global(.dark) .quality-issues h3 {
+  color: #ffb74d;
+}
+
+.quality-issues-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.quality-issue-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: white;
+  border-radius: 8px;
+  border-left: 4px solid #ff9800;
+}
+
+:global(.dark) .quality-issue-item {
+  background: #2a2a2a;
+  border-left-color: #ffb74d;
+}
+
+.quality-issue-icon {
+  color: #f57c00;
+  font-size: 1.1rem;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+:global(.dark) .quality-issue-icon {
+  color: #ffb74d;
+}
+
+.quality-issue-content {
+  flex: 1;
+}
+
+.quality-issue-field {
+  font-weight: 600;
+  color: #333;
+  margin-right: 0.5rem;
+}
+
+:global(.dark) .quality-issue-field {
+  color: #fff;
+}
+
+.quality-issue-description {
+  color: #666;
+}
+
+:global(.dark) .quality-issue-description {
+  color: #999;
+}
+
+.metric-value.filename {
+  max-width: 220px;        /* adjust to your card width */
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

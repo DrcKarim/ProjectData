@@ -40,7 +40,7 @@ function DatasetInfo({ datasetInfo, filteredRows }) {
           <div className="metric-icon">📄</div>
           <div className="metric-content">
             <span className="metric-label">File</span>
-            <span className="metric-value">{filename}</span>
+            <span className="metric-value filename">{filename}</span>
             <span className="metric-detail">{file_type?.toUpperCase() || 'Unknown'} format</span>
           </div>
         </div>

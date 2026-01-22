@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { FaChevronDown, FaChevronUp, FaTable, FaChartBar, FaExclamationTriangle } from 'react-icons/fa';
+import { FaTable, FaChartBar, FaExclamationTriangle } from 'react-icons/fa';
 import { getTypeLabel, getTypeIcon, isNumericType, isCategoricalType } from '../utils/schemaInference';
 
 /**
@@ -127,7 +127,6 @@ const ColumnCard = styled.div`
   border-radius: ${props => props.theme.borderRadius.md};
   overflow: hidden;
   transition: all ${props => props.theme.animations.durations.standard}ms;
-  cursor: pointer;
 
   &:hover {
     border-color: ${props => props.theme.colors.primary.main};
@@ -190,9 +189,7 @@ const ExpandButton = styled.button`
 
 const ColumnContent = styled.div`
   padding: 16px;
-  max-height: ${props => props.isExpanded ? '500px' : '0'};
-  overflow: hidden;
-  transition: max-height ${props => props.theme.animations.durations.standard}ms;
+  display: block;
 
   .stat-row {
     display: flex;
@@ -308,8 +305,6 @@ const DataPreview = styled.div`
 `;
 
 const DataProfile = ({ profile, data, headers }) => {
-  const [expandedColumn, setExpandedColumn] = useState(null);
-
   if (!profile || !data) {
     return (
       <ProfileContainer>
@@ -317,10 +312,6 @@ const DataProfile = ({ profile, data, headers }) => {
       </ProfileContainer>
     );
   }
-
-  const toggleColumn = (columnName) => {
-    setExpandedColumn(expandedColumn === columnName ? null : columnName);
-  };
 
   return (
     <ProfileContainer>
@@ -378,8 +369,6 @@ const DataProfile = ({ profile, data, headers }) => {
             const columnProfile = profile.columns[columnName];
             if (!columnProfile) return null;
 
-            const isExpanded = expandedColumn === columnName;
-
             return (
               <ColumnCard key={columnName}>
                 <ColumnHeader>
@@ -390,12 +379,9 @@ const DataProfile = ({ profile, data, headers }) => {
                       <span className="type">{getTypeLabel(columnProfile.type)}</span>
                     </div>
                   </ColumnTitle>
-                  <ExpandButton onClick={() => toggleColumn(columnName)}>
-                    {isExpanded ? <FaChevronUp /> : <FaChevronDown />}
-                  </ExpandButton>
                 </ColumnHeader>
 
-                <ColumnContent isExpanded={isExpanded}>
+                <ColumnContent>
                   <div className="stat-row">
                     <span className="label">Non-Null</span>
                     <span className="value">

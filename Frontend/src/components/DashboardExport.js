@@ -16,7 +16,7 @@ import './DashboardExport.css';
 
 const DashboardExport = ({
   chartElements = [],
-  title = 'Dashboard Report',
+  title: initialTitle = 'Dashboard Report',
   onClose,
 }) => {
   const [format, setFormat] = useState(ExportFormats.PDF);
@@ -27,6 +27,7 @@ const DashboardExport = ({
   const [isExporting, setIsExporting] = useState(false);
   const [error, setError] = useState(null);
   const [progress, setProgress] = useState(0);
+  const [title, setTitle] = useState(initialTitle);
   const [subtitle, setSubtitle] = useState('');
   const [author, setAuthor] = useState('');
   const [includeTimestamp, setIncludeTimestamp] = useState(true);
