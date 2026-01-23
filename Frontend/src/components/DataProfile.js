@@ -272,6 +272,7 @@ const IssuesList = styled.ul`
 const DataPreview = styled.div`
   margin-top: 32px;
   overflow-x: auto;
+  margin-bottom: 48px;
 
   table {
     width: 100%;
@@ -357,6 +358,35 @@ const DataProfile = ({ profile, data, headers }) => {
           <div className="value">{profile.quality.validity}%</div>
         </SummaryCard>
       </SummaryGrid>
+
+         {/* Data Preview */}
+      {data.length > 0 && (
+        <div style={{ marginTop: '32px' }}>
+          <SectionTitle>
+            <FaChartBar className="icon" /> Data Preview (First 10 Rows)
+          </SectionTitle>
+          <DataPreview>
+            <table>
+              <thead>
+                <tr>
+                  {headers.map(header => (
+                    <th key={header}>{header}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {data.slice(0, 10).map((row, idx) => (
+                  <tr key={idx}>
+                    {headers.map(header => (
+                      <td key={`${idx}-${header}`}>{row[header]}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </DataPreview>
+        </div>
+      )}
 
       {/* Schema Information */}
       <SchemaSection>
@@ -476,34 +506,7 @@ const DataProfile = ({ profile, data, headers }) => {
         </IssuesSection>
       )}
 
-      {/* Data Preview */}
-      {data.length > 0 && (
-        <div style={{ marginTop: '32px' }}>
-          <SectionTitle>
-            <FaChartBar className="icon" /> Data Preview (First 10 Rows)
-          </SectionTitle>
-          <DataPreview>
-            <table>
-              <thead>
-                <tr>
-                  {headers.map(header => (
-                    <th key={header}>{header}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {data.slice(0, 10).map((row, idx) => (
-                  <tr key={idx}>
-                    {headers.map(header => (
-                      <td key={`${idx}-${header}`}>{row[header]}</td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </DataPreview>
-        </div>
-      )}
+   
     </ProfileContainer>
   );
 };
