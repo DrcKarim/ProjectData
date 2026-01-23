@@ -9,6 +9,7 @@ Amine Boussaid
 
 https://github.com/user-attachments/assets/aa40bcd6-0798-4710-a1b0-35a0ff73162b
 
+Sur Youtube: https://youtu.be/LFyDm4NDbQQ
 
 A complete, production-ready full-stack application for interactive data visualization and analysis. Transform multiple data formats into powerful, interactive insights with macro and micro-level exploration.
 
