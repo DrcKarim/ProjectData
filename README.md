@@ -1,5 +1,14 @@
 # 📊 Interactive Data Visualization System
 
+## Authors
+Karim BOUCHAANE
+Amine Boussaid
+
+## Demo Video
+
+https://github.com/user-attachments/assets/aa40bcd6-0798-4710-a1b0-35a0ff73162b
+
+
 A complete, production-ready full-stack application for interactive data visualization and analysis. Transform multiple data formats into powerful, interactive insights with macro and micro-level exploration.
 
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
