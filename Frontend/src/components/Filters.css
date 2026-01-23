@@ -1,3 +1,4 @@
+ 
 .filters-container {
   background: white;
   padding: 2rem;
@@ -271,13 +272,24 @@
 .apply-btn,
 .reset-btn {
   padding: 0.75rem 1.5rem;
-  border: none;
+  border: 2px dashed #667eea;
+  background: transparent;
+  color: #667eea;
   border-radius: 8px;
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reset-btn:hover {
+  background: #eef1ff;
+  border-color: #5a67d8;
+  color: #5a67d8;
 }
 
 .apply-btn {
@@ -464,3 +476,4 @@
 .categories-list::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+ 
