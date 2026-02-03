@@ -1,4 +1,4 @@
-# 📊 Interactive Data Visualization System
+#  Interactive Data Visualization System
 
 ## Authors
 Karim BOUCHAANE
@@ -19,7 +19,7 @@ A complete, production-ready full-stack application for interactive data visuali
 ![React](https://img.shields.io/badge/React-18.2+-blue.svg)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-darkblue.svg)
 
-## 🎯 Project Overview
+##  Project Overview
 
 This system enables **master-level academic data exploration** with:
 
@@ -31,7 +31,7 @@ This system enables **master-level academic data exploration** with:
 - **Micro-level Drill-down**: Click, hover, brush, and link interactions
 - **Professional UI**: Dark mode, responsive design, accessibility
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -46,7 +46,7 @@ This system enables **master-level academic data exploration** with:
 └─────────────────────────────────────────────────────────┘
 ```
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 ProjectData/
@@ -67,14 +67,14 @@ ProjectData/
 └── README.md                # This file
 ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 - Python 3.8+
 - Node.js 14+
 - npm or yarn
 
-### 1️⃣ Backend Setup
+###  Backend Setup
 
 ```bash
 cd Backend
@@ -95,7 +95,7 @@ python main.py
 # Runs on http://localhost:8000
 ```
 
-### 2️⃣ Frontend Setup
+###  Frontend Setup
 
 ```bash
 cd Frontend
@@ -108,7 +108,7 @@ npm start
 # Opens http://localhost:3000
 ```
 
-### 3️⃣ Use the Application
+### Use the Application
 
 1. Navigate to http://localhost:3000
 2. Click "Choose File" and select a data file
@@ -116,7 +116,7 @@ npm start
 4. Explore the data with interactive visualizations
 5. Apply filters to drill down into subsets
 
-## 📊 Supported Data Formats
+## Supported Data Formats
 
 | Format | Extension | Use Case |
 |--------|-----------|----------|
@@ -126,7 +126,7 @@ npm start
 | TSV | `.tsv` | Tab-separated values |
 | TXT | `.txt` | Text documents, word analysis |
 
-## 🎨 Features
+## Features
 
 ### Macro-Level Exploration
 - **Distribution Histograms** for numeric data
@@ -160,7 +160,7 @@ npm start
 - **Professional Themes** (Dark, Light, Executive, Corporate)
 - **Print Support** and PDF export
 
-### Export & Reporting (Phase 5) ✨ NEW
+### Export & Reporting (Phase 5)  NEW
 - **Multi-Format Export**: PNG, SVG, PDF
 - **Configurable Resolution**: 72, 150, 300, 600 DPI
 - **Single Chart Export** with multiple format options
@@ -170,7 +170,7 @@ npm start
 - **Professional Quality** suitable for executive reports
 - **Responsive Export Dialogs** with progress tracking
 
-## 🔧 API Endpoints
+## API Endpoints
 
 ### POST /upload
 Upload and process a file
@@ -189,7 +189,7 @@ Apply filters to current dataset
 ### DELETE /reset
 Reset to original dataset
 
-## 📈 Data Type Detection
+## Data Type Detection
 
 The system automatically detects and handles:
 
@@ -198,7 +198,7 @@ The system automatically detects and handles:
 - **Temporal**: Dates/datetimes → Line charts, trends
 - **Text**: Long-form text → Word clouds, frequency analysis
 
-## 📊 Statistics Computed
+## Statistics Computed
 
 ### Numeric Columns
 - Mean, median, standard deviation
@@ -215,7 +215,7 @@ The system automatically detects and handles:
 - Trend visualization
 - Period analysis
 
-## 🎯 Use Cases
+## Use Cases
 
 ### Academic Research
 - Explore survey data
@@ -232,7 +232,7 @@ The system automatically detects and handles:
 - Feature engineering discovery
 - Pattern identification
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 ### Backend
 - **FastAPI**: Modern async web framework
@@ -251,7 +251,7 @@ The system automatically detects and handles:
 - **Vercel/Netlify**: Frontend hosting
 - **Heroku/Railway**: Backend hosting
 
-## 📦 Deployment
+## Deployment
 
 ### Docker Compose (Local)
 ```bash
@@ -273,7 +273,7 @@ git push heroku main
 
 See individual README files for detailed deployment instructions.
 
-## 🔐 Production Checklist
+## Production Checklist
 
 - [ ] Update CORS origins in Backend
 - [ ] Set API URL in Frontend environment
@@ -286,7 +286,7 @@ See individual README files for detailed deployment instructions.
 - [ ] Document API changes
 - [ ] Prepare backup strategy
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 **Backend won't start**: Ensure Python 3.8+, all dependencies installed
 **Frontend can't connect**: Check backend running on localhost:8000
@@ -295,7 +295,7 @@ See individual README files for detailed deployment instructions.
 
 See individual README files for more troubleshooting.
 
-## 📚 Documentation
+## Documentation
 
 ### Core Documentation
 - [Backend Documentation](Backend/README.md)
@@ -308,7 +308,7 @@ See individual README files for more troubleshooting.
 - [Interactive Charts](INTERACTIVE_CHARTS_DOCS.md) - Phase 3
 - [Presentation Mode](PRESENTATION_MODE_DOCS.md) - Phase 4
   - [Presentation Quick Start](PRESENTATION_QUICKSTART.md)
-- **[Export Features](EXPORT_FEATURES_DOCS.md) - Phase 5** ✨ NEW
+- **[Export Features](EXPORT_FEATURES_DOCS.md) - Phase 5**  NEW
   - [Export Quick Start](EXPORT_QUICKSTART.md)
   - [Implementation Details](EXPORT_IMPLEMENTATION.md)
 
@@ -317,7 +317,7 @@ See individual README files for more troubleshooting.
 - [Implementation Checklist](CHECKLIST.md)
 - [Quick Start Guide](QUICKSTART.md)
 
-## 🎓 For Academic Use
+## For Academic Use
 
 This system is designed for:
 - **Master-level courses** on data visualization
@@ -332,11 +332,11 @@ This system is designed for:
 - Real-time feedback
 - No authentication required
 
-## 📝 License
+## License
 
 MIT License - Feel free to use and modify for academic/commercial purposes.
 
-## 👨‍💻 Development
+##  Development
 
 ### Adding New Features
 
@@ -351,7 +351,7 @@ MIT License - Feel free to use and modify for academic/commercial purposes.
 - JavaScript: ESLint config
 - Git: Conventional commits
 
-## 🤝 Contributing
+## Contributing
 
 Contributions welcome! Please:
 1. Fork repository
@@ -359,7 +359,7 @@ Contributions welcome! Please:
 3. Add tests/documentation
 4. Submit pull request
 
-## 📞 Support
+##  Support
 
 For issues or questions:
 - Check README files
@@ -367,7 +367,7 @@ For issues or questions:
 - Check troubleshooting section
 - Open GitHub issue
 
-## 🎉 Features Showcase
+## Features Showcase
 
 ### Data Exploration
 - Automatic outlier detection
@@ -393,7 +393,7 @@ For issues or questions:
 **Ready for**: Production deployment  
 **Designed for**: Interactive data exploration
 
-Happy exploring! 📊✨
+Happy exploring!
 - npm or yarn
 
 ### Step 1: Start the Backend
@@ -434,7 +434,7 @@ npm start
 
 Frontend will open automatically at: `http://localhost:3000`
 
-## 📊 How to Use
+## How to Use
 
 1. **Upload CSV File**
    - Click "Choose CSV file" button
@@ -457,25 +457,25 @@ Frontend will open automatically at: `http://localhost:3000`
    - Click "Apply Filter" to update
    - Click "Reset All" to clear filters
 
-## 🔧 Features
+##  Features
 
 ### Backend Features
-- ✅ CSV file upload and processing
-- ✅ Automatic data type detection (numeric/categorical)
-- ✅ Statistical analysis (mean, min, max, median, std)
-- ✅ Dynamic filtering (range and category filters)
-- ✅ CORS enabled for frontend communication
-- ✅ RESTful API design
+-  CSV file upload and processing
+-  Automatic data type detection (numeric/categorical)
+-  Statistical analysis (mean, min, max, median, std)
+-  Dynamic filtering (range and category filters)
+-  CORS enabled for frontend communication
+-  RESTful API design
 
 ### Frontend Features
-- ✅ Clean, intuitive UI
-- ✅ File upload with validation
-- ✅ Real-time data visualization
-- ✅ Interactive filtering
-- ✅ Responsive design
-- ✅ Error handling and user feedback
+-  Clean, intuitive UI
+-  File upload with validation
+-  Real-time data visualization
+-  Interactive filtering
+-  Responsive design
+-  Error handling and user feedback
 
-## 🔌 API Endpoints
+##  API Endpoints
 
 ### GET /
 Health check endpoint
@@ -494,7 +494,7 @@ Filter dataset
 Reset to original dataset
 - **Output**: Original dataset info
 
-## 📦 Dependencies
+## Dependencies
 
 ### Backend
 - fastapi==0.109.0
@@ -509,7 +509,7 @@ Reset to original dataset
 - recharts@^2.10.3
 - react-scripts@5.0.1
 
-## 🧪 Testing with Sample Data
+## Testing with Sample Data
 
 Create a sample CSV file (sample.csv):
 ```csv
@@ -523,7 +523,7 @@ Charlie,32,Phoenix,58000
 
 Upload this file to test all features!
 
-## 🛠️ Development Notes
+## Development Notes
 
 ### Backend
 - Uses in-memory storage (dataset is stored in global variable)
@@ -536,7 +536,7 @@ Upload this file to test all features!
 - Fetch API for HTTP requests
 - Recharts for data visualization
 
-## 📝 Code Comments
+## Code Comments
 
 Both backend and frontend code include detailed comments explaining:
 - Function purposes
@@ -544,7 +544,7 @@ Both backend and frontend code include detailed comments explaining:
 - API interactions
 - Data transformations
 
-## 🔍 Troubleshooting
+##  Troubleshooting
 
 **Backend not starting?**
 - Check Python version: `python --version`
@@ -566,7 +566,7 @@ Both backend and frontend code include detailed comments explaining:
 - Check browser console for errors
 - Verify backend is returning chart data
 
-## 📚 Learning Resources
+## Learning Resources
 
 This project demonstrates:
 - REST API development with FastAPI
@@ -577,7 +577,7 @@ This project demonstrates:
 - CORS configuration
 - Error handling and user feedback
 
-## 🎓 Teacher Notes
+## Teacher Notes
 
 This project is designed to be:
 - **Simple**: Clean code with extensive comments
@@ -586,11 +586,11 @@ This project is designed to be:
 - **Self-contained**: No external services or authentication
 - **Well-documented**: Comprehensive README files
 
-## 📄 License
+##  License
 
 This project is created for educational purposes.
 
-## 👨‍💻 Support
+##  Support
 
 For issues or questions:
 1. Check the README files in Backend/ and Frontend/ directories
